@@ -5,7 +5,6 @@ Static React website built with Vite. The GitHub Pages workflow deploys the buil
 ## Local development
 
 ```bash
-cd website
 npm install
 npm run dev
 ```
@@ -18,7 +17,7 @@ npm run build
 
 ## Publish on GitHub Pages
 
-1. Create an empty GitHub repository and push this project to it. Keep the `website/` and `.github/workflows/deploy.yml` folders in the repository.
+1. Create an empty GitHub repository and push this project to it. Keep the project files and `.github/workflows/deploy.yml` in the repository.
 2. On GitHub, open **Settings → Pages**.
 3. Under **Build and deployment**, choose **GitHub Actions** as the source.
 4. Push or merge a commit to the `main` branch. The **Deploy static site to GitHub Pages** workflow will install, build, and publish the site.

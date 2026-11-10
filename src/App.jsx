@@ -3,8 +3,9 @@ import content from "./content/ar.json";
 import logo from "./design/brand/logo-horizontal.svg";
 import lightLogo from "./design/brand/logo-horizontal-light.svg";
 import teamImage from "./media/Smart Land Team.webp";
-import heroImage from "./media/First Thumbnail.webp";
-import multimediaImage from "./media/Second Thumbnail.webp";
+import introduction from "./media/Introduction.mp4";
+import introductionThumbnail from "./media/Introduction Thumbnail.webp";
+import multimediaThumbnail from "./media/Multimedia Thumbnail.webp";
 import MediaFrame from "./components/MediaFrame";
 import SectionIntro from "./components/SectionIntro";
 
@@ -84,9 +85,11 @@ function Hero() {
           </div>
         </div>
         <MediaFrame
-          src={heroImage}
+          src={introduction}
+          thumbnail={introductionThumbnail}
           alt={hero.videoLabel}
           className="hero-image"
+          type="video"
         />
       </div>
     </section>
@@ -182,7 +185,7 @@ function Multimedia() {
       <div className="container">
         <SectionIntro {...content.media} />
         <MediaFrame
-          src={multimediaImage}
+          src={multimediaThumbnail}
           type="image"
           alt={content.media.label}
           className="video-placeholder"

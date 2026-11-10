@@ -1,5 +1,6 @@
 export default function MediaFrame({
   src,
+  thumbnail,
   alt,
   type = "image",
   className = "",
@@ -9,8 +10,9 @@ export default function MediaFrame({
       <video
         className={`media-frame ${className}`}
         src={src}
-        alt={alt}
-        loading="lazy"
+        poster={thumbnail}
+        aria-label={alt}
+        preload="metadata"
         controls
       />
     ) : (

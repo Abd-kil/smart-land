@@ -2,16 +2,16 @@ import { useState } from "react";
 import content from "./content/ar.json";
 import logo from "./design/brand/logo-horizontal.svg";
 import lightLogo from "./design/brand/logo-horizontal-light.svg";
-import teamImage from "./media/Smart Land Team.webp";
+import teamImage from "./media/Smart Land Team.webp?w=480;960;1600&format=webp&as=srcset";
 import introduction from "./media/Introduction.mp4";
-import introductionThumbnail from "./media/Introduction Thumbnail.webp";
-import multimediaThumbnail from "./media/Multimedia Thumbnail.webp";
+import introductionThumbnail from "./media/Introduction Thumbnail.webp?w=960&format=webp";
+import multimediaThumbnail from "./media/Multimedia Thumbnail.webp?w=960&format=webp";
 import MediaFrame from "./components/MediaFrame";
 import SectionIntro from "./components/SectionIntro";
 
-const mediaFiles = import.meta.glob("./media/*", {
+const mediaFiles = import.meta.glob("./media/*.{avif,gif,jpeg,jpg,png,webp}", {
   eager: true,
-  query: "?url",
+  query: "?w=480;960;1600&format=webp&as=srcset",
   import: "default",
 });
 const getMedia = (fileName) => mediaFiles[`./media/${fileName}`];
@@ -90,6 +90,7 @@ function Hero() {
           alt={hero.videoLabel}
           className="hero-image"
           type="video"
+          sizes="(max-width: 960px) 100vw, 42vw"
         />
       </div>
     </section>
@@ -122,7 +123,7 @@ function About() {
           <small>{about.cardLabel}</small>
           <h3>{about.cardTitle}</h3>
           <p>{about.cardText}</p>
-          <MediaFrame src={teamImage} alt={about.imageLabel} />
+          <MediaFrame srcSet={teamImage} alt={about.imageLabel} sizes="(max-width: 960px) 100vw, 42vw" />
         </aside>
       </div>
     </section>
@@ -159,7 +160,7 @@ function Portfolio() {
           {portfolio.items.map(
             ([title, category, subtitle, description, image]) => (
               <article className="project-card" key={title}>
-                <MediaFrame src={getMedia(image)} alt={title} />
+                <MediaFrame srcSet={getMedia(image)} alt={title} sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 33vw" />
                 <div className="project-content">
                   <span>{category}</span>
                   <h3>{title}</h3>

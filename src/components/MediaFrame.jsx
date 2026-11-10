@@ -1,9 +1,11 @@
 export default function MediaFrame({
   src,
+  srcSet,
   thumbnail,
   alt,
   type = "image",
   className = "",
+  sizes = "100vw",
 }) {
   if (src) {
     return type === "video" ? (
@@ -12,7 +14,7 @@ export default function MediaFrame({
         src={src}
         poster={thumbnail}
         aria-label={alt}
-        preload="metadata"
+        preload="none"
         controls
       />
     ) : (
@@ -21,6 +23,24 @@ export default function MediaFrame({
         src={src}
         alt={alt}
         loading="lazy"
+        decoding="async"
+        sizes={sizes}
+      />
+    );
+  }
+
+  if (srcSet) {
+    const fallbackSrc = srcSet.split(",")[0].trim().split(/\s+/)[0];
+
+    return (
+      <img
+        className={`media-frame ${className}`}
+        src={fallbackSrc}
+        srcSet={srcSet}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        sizes={sizes}
       />
     );
   }

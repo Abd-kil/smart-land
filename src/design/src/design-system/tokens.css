@@ -1,0 +1,75 @@
+/* Smart Land design tokens v1.0: import first */
+:root {
+  /* colour */
+  --sl-lagoon-900: #0A3340;
+  --sl-lagoon-700: #0F4C5C;
+  --sl-field-600: #1F7A63;
+  --sl-field-400: #3FB391;
+  --sl-stake-400: #FFC93C;
+  --sl-sky-300: #8FD0EA;
+  --sl-mist-100: #E8F1F0;
+  --sl-white: #FFFFFF;
+  --sl-berry-600: #B3265B;
+
+  /* semantic (light tone, default) */
+  --sl-bg: var(--sl-mist-100);
+  --sl-surface: var(--sl-white);
+  --sl-text: var(--sl-lagoon-900);
+  --sl-text-muted: #3D6470;
+  --sl-link: var(--sl-field-600);
+  --sl-line: rgba(10, 51, 64, 0.16);
+  --sl-focus: var(--sl-lagoon-900);
+
+  /* type */
+  --sl-font-display: 'Familjen Grotesk', 'Readex Pro', system-ui, sans-serif;
+  --sl-font-body: 'Readex Pro', 'Segoe UI', system-ui, sans-serif;
+  --sl-text-sm: clamp(0.875rem, 0.85rem + 0.1vw, 0.95rem);
+  --sl-text-base: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
+  --sl-text-lg: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --sl-text-xl: clamp(1.6rem, 1.3rem + 1vw, 2.1rem);
+  --sl-text-2xl: clamp(2.1rem, 1.6rem + 2vw, 3.1rem);
+  --sl-text-3xl: clamp(2.8rem, 1.9rem + 4vw, 5rem);
+  --sl-leading-body: 1.65;
+  --sl-leading-heading: 1.12;
+
+  /* space (4px base) */
+  --sl-space-1: 0.25rem; --sl-space-2: 0.5rem; --sl-space-3: 0.75rem;
+  --sl-space-4: 1rem; --sl-space-5: 1.5rem; --sl-space-6: 2rem;
+  --sl-space-7: 3rem; --sl-space-8: 4rem; --sl-space-9: 6rem;
+  --sl-space-10: 8rem; --sl-space-12: 12rem;
+
+  /* shape */
+  --sl-radius-input: 8px;
+  --sl-radius-button: 10px;
+  --sl-cut: 28px; /* cut-corner size */
+
+  /* elevation (lagoon-tinted) */
+  --sl-shadow-1: 0 2px 8px rgba(10, 51, 64, 0.10);
+  --sl-shadow-2: 0 12px 32px rgba(10, 51, 64, 0.16);
+
+  /* layout */
+  --sl-container: 1200px;
+  --sl-gutter: 24px;
+  /* breakpoints (use literals in @media): 640px / 960px / 1280px */
+
+  /* motion */
+  --sl-ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+  --sl-fast: 150ms;
+  --sl-base: 250ms;
+  --sl-draw: 1200ms;
+
+  /* z-index */
+  --sl-z-header: 50; --sl-z-overlay: 100;
+}
+
+/* dark tone: apply with data-tone="lagoon" on any section */
+[data-tone='lagoon'] {
+  --sl-bg: var(--sl-lagoon-900);
+  --sl-surface: var(--sl-lagoon-700);
+  --sl-text: var(--sl-mist-100);
+  --sl-text-muted: #A9C7CD;
+  --sl-link: var(--sl-sky-300);
+  --sl-line: rgba(232, 241, 240, 0.22);
+  --sl-focus: var(--sl-stake-400);
+}
+[data-tone='white'] { --sl-bg: var(--sl-white); --sl-surface: var(--sl-mist-100); }

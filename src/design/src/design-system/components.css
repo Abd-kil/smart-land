@@ -1,0 +1,70 @@
+/* Smart Land components v1.0: uses logical properties (RTL-safe) */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--sl-font-body); font-size: var(--sl-text-base);
+  line-height: var(--sl-leading-body); color: var(--sl-text); background: var(--sl-mist-100); }
+html[dir='rtl'] { --sl-leading-heading: 1.4; }
+img, video { max-inline-size: 100%; display: block; }
+a { color: var(--sl-link); }
+:focus-visible { outline: 3px solid var(--sl-focus); outline-offset: 3px; }
+
+h1, h2, h3, h4 { font-family: var(--sl-font-display); font-weight: 700;
+  line-height: var(--sl-leading-heading); letter-spacing: -0.01em; margin: 0 0 var(--sl-space-4); }
+h1 { font-size: var(--sl-text-3xl); } h2 { font-size: var(--sl-text-2xl); }
+h3 { font-size: var(--sl-text-xl); }  h4 { font-size: var(--sl-text-lg); }
+.sl-prose { max-inline-size: 68ch; }
+.sl-muted { color: var(--sl-text-muted); }
+
+.sl-container { inline-size: min(100% - 2 * var(--sl-gutter), var(--sl-container)); margin-inline: auto; }
+.sl-section { background: var(--sl-bg); color: var(--sl-text); padding-block: var(--sl-space-9); }
+.sl-grid { display: grid; gap: var(--sl-gutter); grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+
+/* buttons */
+.sl-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--sl-space-2);
+  min-block-size: 44px; padding-inline: var(--sl-space-5); border-radius: var(--sl-radius-button);
+  font: 500 var(--sl-text-base)/1 var(--sl-font-body); text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; transition: transform var(--sl-fast) var(--sl-ease), background var(--sl-fast); }
+.sl-btn:active { transform: translateY(1px); }
+.sl-btn--primary { background: var(--sl-stake-400); color: var(--sl-lagoon-900); }
+.sl-btn--primary:hover { background: #FFD661; }
+.sl-btn--secondary { background: transparent; color: var(--sl-text); border-color: currentColor; }
+.sl-btn--ghost { background: transparent; color: var(--sl-link); padding-inline: var(--sl-space-3); }
+
+/* cut-corner shape (top-inline-end clipped) */
+.sl-cut { clip-path: polygon(0 0, calc(100% - var(--sl-cut)) 0, 100% var(--sl-cut), 100% 100%, 0 100%); }
+html[dir='rtl'] .sl-cut { clip-path: polygon(var(--sl-cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--sl-cut)); }
+
+.sl-card { background: var(--sl-surface); color: var(--sl-text); overflow: hidden; }
+.sl-card__body { padding: var(--sl-space-5); }
+.sl-project__meta { display: flex; flex-wrap: wrap; gap: var(--sl-space-2) var(--sl-space-4);
+  margin: 0 0 var(--sl-space-3); font-size: var(--sl-text-sm); color: var(--sl-text-muted); }
+.sl-project__meta dt { display: none; }
+.sl-project__meta dd { margin: 0; padding-inline-start: var(--sl-space-3);
+  border-inline-start: 4px solid var(--sl-stake-400); }
+
+/* media */
+.sl-media { position: relative; margin: 0; background: var(--sl-lagoon-700); }
+.sl-media img, .sl-media video { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.sl-media figcaption { padding: var(--sl-space-2) var(--sl-space-3); font-size: var(--sl-text-sm); color: var(--sl-text-muted); background: var(--sl-surface); }
+.sl-ai-badge { position: absolute; inset-block-end: var(--sl-space-3); inset-inline-start: var(--sl-space-3);
+  padding: 4px 10px; border-radius: 6px; font-size: var(--sl-text-sm); font-weight: 500;
+  background: rgba(10, 51, 64, 0.82); color: var(--sl-mist-100); }
+
+/* header */
+.sl-header { position: sticky; inset-block-start: 0; z-index: var(--sl-z-header);
+  background: rgba(232, 241, 240, 0.94); backdrop-filter: blur(8px); border-block-end: 1px solid var(--sl-line); }
+.sl-header__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sl-space-5); min-block-size: 68px; }
+.sl-nav { display: flex; gap: var(--sl-space-5); flex-wrap: wrap; }
+.sl-nav a { color: var(--sl-lagoon-900); text-decoration: none; padding-block: var(--sl-space-2);
+  border-block-end: 3px solid transparent; }
+.sl-nav a:hover, .sl-nav a[aria-current='true'] { border-block-end-color: var(--sl-stake-400); }
+
+/* contour divider */
+.sl-contours { display: block; inline-size: 100%; block-size: clamp(60px, 10vw, 140px); }
+.sl-contours path { fill: none; stroke-width: 2; stroke-dasharray: 1800; stroke-dashoffset: 1800;
+  animation: sl-draw var(--sl-draw) var(--sl-ease) forwards; }
+@keyframes sl-draw { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .sl-contours path { stroke-dashoffset: 0; }
+}

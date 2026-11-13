@@ -9,7 +9,7 @@ import MediaFrame from "./components/MediaFrame";
 import SectionIntro from "./components/SectionIntro";
 
 const introduction = "https://youtu.be/-V3EzPWmIJ8";
-const secondIntroduction = "https://youtu.be/wZLY51wkPgA";
+const secondIntroduction = "https://youtu.be/zhvyaZ7czhw";
 
 const mediaFiles = import.meta.glob("./media/*.{avif,gif,jpeg,jpg,png,webp}", {
   eager: true,
